@@ -471,6 +471,7 @@
 
     mounted() {
       this._container.addEventListener('resize', this.onResize)
+      window.addEventListener('focus', () => console.log('focus'))
       this.onVolumeChanged(this.volume)
       this.onMutedChanged(this.muted)
       this.onStreamChanged(this.stream)
@@ -846,6 +847,7 @@
     }
 
     onMouseEnter(e: MouseEvent) {
+      console.log("mouseenter")
       if (this.hosting) {
         this.$accessor.remote.syncKeyboardModifierState({
           capsLock: e.getModifierState('CapsLock'),
